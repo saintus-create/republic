@@ -74,11 +74,11 @@ function LoginPage() {
           <span className="bg-muted flex size-10 items-center justify-center rounded-full">
             <LockIcon className="text-muted-foreground size-4" />
           </span>
-          <h1 className="text-2xl font-medium tracking-tight">Sign In</h1>
+          <h1 className="text-2xl font-medium tracking-tight">Welcome</h1>
           <p className="text-muted-foreground text-sm">
             {status === "unconfigured"
-              ? "This agent isn't accepting visitors yet."
-              : "Enter the access password to chat with this agent."}
+              ? "This site isn't ready for visitors yet."
+              : "Enter the password to access my personal site."}
           </p>
         </div>
 

@@ -4,5 +4,5 @@ export default defineAgent({
   limits: {
     maxInputTokensPerSession: 300_000,
   },
-  model: "openai/gpt-6.1-sol-fast",
+  model: process.env.EVE_MODEL ?? "openai/gpt-4o-mini",
 });

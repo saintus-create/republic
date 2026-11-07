@@ -36,7 +36,7 @@ import { cn } from "@/lib/utils";
 import { AgentMessage } from "./agent-message";
 import type { AgentInputResponse } from "./agent-message";
 
-const DEFAULT_AGENT_NAME = "eve TanStack Agent";
+const DEFAULT_AGENT_NAME = "Personal Assistant";
 const AGENT_NAME = WEB_CHAT_AGENT ?? DEFAULT_AGENT_NAME;
 
 type EveAgent = UseEveAgentHelpers<ConversationState>;
@@ -195,30 +195,36 @@ export function AgentChat({
             <h1 className="text-5xl font-medium tracking-tighter">
               {AGENT_NAME}
             </h1>
+            <p className="text-muted-foreground text-lg">
+              Ask me about my work, projects, or anything else.
+            </p>
           </div>
         )}
         <div className="w-full">{composer}</div>
       </div>
       {view.showConversationLayout ? null : (
         <footer className="text-muted-foreground/70 pb-4 text-center text-xs">
-          Powered by{" "}
-          <a
-            className="hover:text-foreground transition-colors"
-            href="https://eve.dev/docs/guides/frontend/tanstack"
-            rel="noreferrer"
-            target="_blank"
-          >
-            eve
-          </a>{" "}
-          and{" "}
-          <a
-            className="hover:text-foreground transition-colors"
-            href="https://tanstack.com/start"
-            rel="noreferrer"
-            target="_blank"
-          >
-            TanStack Start
-          </a>
+          <p className="mb-1">Software Developer & AI Enthusiast</p>
+          <p>
+            Powered by{" "}
+            <a
+              className="hover:text-foreground transition-colors"
+              href="https://eve.dev/docs/guides/frontend/tanstack"
+              rel="noreferrer"
+              target="_blank"
+            >
+              eve
+            </a>{" "}
+            and{" "}
+            <a
+              className="hover:text-foreground transition-colors"
+              href="https://tanstack.com/start"
+              rel="noreferrer"
+              target="_blank"
+            >
+              TanStack Start
+            </a>
+          </p>
         </footer>
       )}
     </main>
