@@ -25,18 +25,14 @@ export type AccessStatus = "open" | "authorized" | "locked" | "unconfigured";
 
 /**
  * Resolves the current browser's {@link AccessStatus} from its access cookie.
- * It runs only on the server and throws if called from the browser.
+ * Public site - always returns "open" for public access.
  *
- * @returns The browser's access status.
+ * @returns The browser's access status - always "open" for public site.
  */
 export const resolveAccessStatus = createServerOnlyFn(
   async (): Promise<AccessStatus> => {
-    if (!isAccessConfigured()) {
-      return import.meta.env.DEV ? "open" : "unconfigured";
-    }
-    return (await verifyAccessToken(getCookie(ACCESS_COOKIE)))
-      ? "authorized"
-      : "locked";
+    // Public site - no authentication required
+    return "open";
   }
 );
 

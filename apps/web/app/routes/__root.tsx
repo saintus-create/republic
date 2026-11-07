@@ -15,28 +15,21 @@ import globalsCss from "../globals.css?url";
 
 export const Route = createRootRoute({
   /**
-   * Sends visitors without chat access to `/login`, remembering where they were headed.
-   *
-   * @param options - The route context; `location` is the page being loaded.
-   * @throws {@link redirect} To `/login` when access is `locked` or `unconfigured`.
+   * Public access - no login required.
+   * All visitors can access the chat directly.
    */
   beforeLoad: async ({ location }) => {
-    if (location.pathname === "/login") {
-      return;
-    }
-    const status = await getAccessStatus();
-    if (status === "locked" || status === "unconfigured") {
-      throw redirect({ to: "/login", search: { redirect: location.href } });
-    }
+    // Always allow access - no authentication required
+    return;
   },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "eve TanStack Agent" },
+      { title: "Personal Assistant" },
       {
         name: "description",
-        content: "A TanStack Start starter for eve agents with AI Elements.",
+        content: "My personal AI assistant - Ask me about my work, projects, or anything else.",
       },
     ],
     links: [
