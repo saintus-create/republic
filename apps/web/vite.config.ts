@@ -6,6 +6,15 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   resolve: { tsconfigPaths: true },
+  server: {
+    proxy: {
+      // Proxy agent requests to the local eve dev server
+      "/eve/v1": {
+        target: "http://127.0.0.1:2000",
+        changeOrigin: true,
+      },
+    },
+  },
   plugins: [
     tailwindcss(),
     tanstackStart({ srcDirectory: "app" }),
