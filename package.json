@@ -7,12 +7,12 @@
     "#evals/*": "./evals/*"
   },
   "scripts": {
-    "dev:app": "vercel dev --local",
     "dev:agent": "eve dev",
     "build": "pnpm run build:agent && pnpm run build:web",
     "build:agent": "eve build",
     "build:web": "vite build apps/web",
-    "deploy": "eve deploy",
+    "start:agent": "eve start --host 0.0.0.0",
+    "start:web": "vite preview apps/web",
     "eval": "eve eval",
     "typecheck": "tsc && tsc -p apps/web",
     "check": "ultracite check",
@@ -38,6 +38,7 @@
     "@tanstack/react-start": "^1.168.60",
     "@tanstack/react-table": "^9.2.8",
     "@vitejs/plugin-react": "^6.1.1",
+    "@ai-sdk/openai": "4.0.91",
     "ai": "^7.0.128",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
